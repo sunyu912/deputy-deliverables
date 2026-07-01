@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlight VR - Game Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        * { font-family: 'Inter', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+        *::-webkit-scrollbar { display: none; }
+        * { scrollbar-width: none; }
+
+        body {
+            background:
+                radial-gradient(1200px 600px at 50% -10%, rgba(45,212,191,0.10), transparent 60%),
+                radial-gradient(1000px 500px at 90% 20%, rgba(251,191,36,0.10), transparent 60%),
+                #ffffff;
+        }
+
+        .screenshot-frame {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(15,23,42,0.18), 0 0 0 1px rgba(15,23,42,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .screenshot-frame:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 35px 80px rgba(15,23,42,0.25), 0 0 0 1px rgba(15,23,42,0.08);
+        }
+        .screenshot-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        @media (max-width: 768px) {
+            .grid-2col { grid-template-columns: 1fr; }
+        }
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="max-w-5xl mx-auto px-8 pt-16 pb-10 text-center">
+        <div class="flex items-center justify-center gap-3 mb-6">
+            <div class="w-16 h-16 bg-gradient-to-br from-teal-400 to-amber-400 rounded-2xl flex items-center justify-center shadow-lg">
+                <i class="fas fa-vr-cardboard text-white text-3xl"></i>
+            </div>
+        </div>
+        <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4 tracking-tight">Wanderlight VR</h1>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            An accessible VR travel game that rebuilds your own uploaded photos and videos into fully explorable 3D worlds — so anyone, regardless of mobility, can journey anywhere.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-6">
+            <span class="pill text-xs bg-teal-100 text-teal-700 px-3 py-1 rounded-full font-medium"><i class="fas fa-universal-access"></i> Accessible VR</span>
+            <span class="pill text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-medium"><i class="fas fa-globe"></i> Virtual Travel</span>
+            <span class="pill text-xs bg-sky-100 text-sky-700 px-3 py-1 rounded-full font-medium"><i class="fas fa-images"></i> Photo-to-World</span>
+            <span class="pill text-xs bg-rose-100 text-rose-700 px-3 py-1 rounded-full font-medium"><i class="fas fa-heart"></i> Inclusive Design</span>
+        </div>
+    </div>
+
+    <!-- Concept strip -->
+    <div class="max-w-5xl mx-auto px-8 pb-6">
+        <div class="grid-2col" style="grid-template-columns: repeat(4, 1fr); gap:16px;">
+            <div class="rounded-2xl border border-gray-100 bg-white/70 p-5 text-center">
+                <div class="text-2xl mb-1"><i class="fas fa-wand-magic-sparkles text-teal-500"></i></div>
+                <div class="text-sm font-semibold text-gray-800">Upload &amp; Rebuild</div>
+                <div class="text-xs text-gray-400 mt-1">Your media becomes a 3D world</div>
+            </div>
+            <div class="rounded-2xl border border-gray-100 bg-white/70 p-5 text-center">
+                <div class="text-2xl mb-1"><i class="fas fa-eye text-amber-500"></i></div>
+                <div class="text-sm font-semibold text-gray-800">Hands-Free Control</div>
+                <div class="text-xs text-gray-400 mt-1">Gaze, voice &amp; sip-and-puff</div>
+            </div>
+            <div class="rounded-2xl border border-gray-100 bg-white/70 p-5 text-center">
+                <div class="text-2xl mb-1"><i class="fas fa-couch text-sky-500"></i></div>
+                <div class="text-sm font-semibold text-gray-800">Comfort First</div>
+                <div class="text-xs text-gray-400 mt-1">Seated, low-motion travel</div>
+            </div>
+            <div class="rounded-2xl border border-gray-100 bg-white/70 p-5 text-center">
+                <div class="text-2xl mb-1"><i class="fas fa-users text-rose-500"></i></div>
+                <div class="text-sm font-semibold text-gray-800">Travel Together</div>
+                <div class="text-xs text-gray-400 mt-1">Share journeys with family</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Screenshots -->
+    <div class="max-w-5xl mx-auto px-8 pb-24 pt-6">
+        <div class="flex flex-col gap-10">
+
+            <!-- 1. Title Screen — FULL WIDTH -->
+            <div>
+                <div class="screenshot-frame">
+                    <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944864252-image-1.png" alt="Wanderlight VR - Title Screen">
+                </div>
+                <p class="text-center text-sm text-gray-400 mt-4 font-medium">Title Screen — Journeys Without Limits</p>
+            </div>
+
+            <!-- 2 + 3 — 2-COLUMN -->
+            <div class="grid-2col">
+                <div>
+                    <div class="screenshot-frame">
+                        <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944871128-image-1.png" alt="Wanderlight VR - Core Gameplay">
+                    </div>
+                    <p class="text-center text-sm text-gray-400 mt-4 font-medium">Core Gameplay — Inside Your World</p>
+                </div>
+                <div>
+                    <div class="screenshot-frame">
+                        <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944878245-image-1.png" alt="Wanderlight VR - World Map">
+                    </div>
+                    <p class="text-center text-sm text-gray-400 mt-4 font-medium">World Map — Destinations Globe</p>
+                </div>
+            </div>
+
+            <!-- 4. Dramatic Reveal — FULL WIDTH -->
+            <div>
+                <div class="screenshot-frame">
+                    <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944884734-image-1.png" alt="Wanderlight VR - Photo Comes Alive">
+                </div>
+                <p class="text-center text-sm text-gray-400 mt-4 font-medium">Signature Moment — A Photo Unfolds Into a World</p>
+            </div>
+
+            <!-- 5 + 6 — 2-COLUMN -->
+            <div class="grid-2col">
+                <div>
+                    <div class="screenshot-frame">
+                        <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944897997-image-1.png" alt="Wanderlight VR - Emotional Memory Scene">
+                    </div>
+                    <p class="text-center text-sm text-gray-400 mt-4 font-medium">Story — Revisiting a Cherished Memory</p>
+                </div>
+                <div>
+                    <div class="screenshot-frame">
+                        <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944904839-image-1.png" alt="Wanderlight VR - Media Studio Dashboard">
+                    </div>
+                    <p class="text-center text-sm text-gray-400 mt-4 font-medium">System — Media Studio &amp; Accessibility</p>
+                </div>
+            </div>
+
+            <!-- 7. Reconstruction Mechanic — FULL WIDTH -->
+            <div>
+                <div class="screenshot-frame">
+                    <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944911433-image-1.png" alt="Wanderlight VR - Photo Reconstruction">
+                </div>
+                <p class="text-center text-sm text-gray-400 mt-4 font-medium">Mechanic — Photos Stitched Into 3D Environments</p>
+            </div>
+
+            <!-- 8 + 9 — 2-COLUMN -->
+            <div class="grid-2col">
+                <div>
+                    <div class="screenshot-frame">
+                        <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944917987-image-1.png" alt="Wanderlight VR - Accessible Controls">
+                    </div>
+                    <p class="text-center text-sm text-gray-400 mt-4 font-medium">Mechanic — Gaze &amp; Voice Navigation</p>
+                </div>
+                <div>
+                    <div class="screenshot-frame">
+                        <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944932093-image-1.png" alt="Wanderlight VR - Co-op Travel">
+                    </div>
+                    <p class="text-center text-sm text-gray-400 mt-4 font-medium">Moment — Co-op Journeys Together</p>
+                </div>
+            </div>
+
+            <!-- 10. Memory Journal — FULL WIDTH -->
+            <div>
+                <div class="screenshot-frame">
+                    <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944939674-image-1.png" alt="Wanderlight VR - Memory Journal">
+                </div>
+                <p class="text-center text-sm text-gray-400 mt-4 font-medium">Rewards — Your Travel Memory Journal</p>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-20 pt-10 border-t border-gray-100">
+            <p class="text-sm text-gray-400">Wanderlight VR — Game Design Concept · Accessible Virtual Travel</p>
+        </div>
+    </div>
+</body>
+</html>
