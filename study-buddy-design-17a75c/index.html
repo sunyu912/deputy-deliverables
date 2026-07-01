@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumi - AI Study Buddy | System Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        * { font-family: 'Inter', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+        *::-webkit-scrollbar { display: none; }
+        * { scrollbar-width: none; }
+
+        .screenshot-frame {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .screenshot-frame:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 35px 80px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.08);
+        }
+        .screenshot-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        @media (max-width: 768px) {
+            .grid-2col { grid-template-columns: 1fr; }
+        }
+        .section-label {
+            letter-spacing: 0.15em;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <div class="max-w-5xl mx-auto px-8 pt-16 pb-12 text-center">
+        <div class="flex items-center justify-center gap-3 mb-5">
+            <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-amber-400 rounded-2xl flex items-center justify-center shadow-lg">
+                <i class="fas fa-graduation-cap text-white text-3xl"></i>
+            </div>
+        </div>
+        <h1 class="text-5xl font-black text-gray-900 mb-3">Lumi</h1>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">A smart desktop study buddy that keeps students focused, answers their questions out loud, and turns learning into a daily habit — powered by on-device sensing and a cloud AI tutor.</p>
+        <div class="flex items-center justify-center flex-wrap gap-3 mt-5">
+            <span class="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full font-medium">EdTech IoT</span>
+            <span class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-medium">AI Tutor</span>
+            <span class="text-xs bg-violet-100 text-violet-700 px-3 py-1 rounded-full font-medium">Ambient Companion</span>
+            <span class="text-xs bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-medium">Focus & Habits</span>
+        </div>
+    </div>
+
+    <!-- System Illustrations -->
+    <div class="max-w-5xl mx-auto px-8 pb-24">
+        <div class="flex flex-col gap-16">
+
+            <!-- 1. Hero / Concept Overview (FULL) -->
+            <div>
+                <p class="text-center text-xs text-indigo-500 font-bold section-label uppercase mb-3">The Vision</p>
+                <div class="screenshot-frame">
+                    <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944825924-image-1.png" alt="Lumi - Concept Overview">
+                </div>
+                <p class="text-center text-sm text-gray-400 mt-4 font-medium">Concept — A friendly focus companion on every desk</p>
+            </div>
+
+            <!-- 2 + 3. Problem + Use Case 1 (2-COL) -->
+            <div>
+                <p class="text-center text-xs text-indigo-500 font-bold section-label uppercase mb-3">The Problem & The Fix</p>
+                <div class="grid-2col">
+                    <div>
+                        <div class="screenshot-frame">
+                            <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944832797-image-1.png" alt="Lumi - Problem Statement">
+                        </div>
+                        <p class="text-center text-sm text-gray-400 mt-4 font-medium">Problem — Distraction, overwhelm, no one to ask</p>
+                    </div>
+                    <div>
+                        <div class="screenshot-frame">
+                            <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944840531-image-1.png" alt="Lumi - Ask Anything">
+                        </div>
+                        <p class="text-center text-sm text-gray-400 mt-4 font-medium">Use Case — Ask a question, get instant help</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Use Case 2 (FULL) -->
+            <div>
+                <p class="text-center text-xs text-indigo-500 font-bold section-label uppercase mb-3">Study Together</p>
+                <div class="screenshot-frame">
+                    <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944847330-image-1.png" alt="Lumi - Group Study">
+                </div>
+                <p class="text-center text-sm text-gray-400 mt-4 font-medium">Use Case — Group study host & quiz master</p>
+            </div>
+
+            <!-- 5 + 6. Architecture + Prototype (2-COL) -->
+            <div>
+                <p class="text-center text-xs text-indigo-500 font-bold section-label uppercase mb-3">Under The Hood</p>
+                <div class="grid-2col">
+                    <div>
+                        <div class="screenshot-frame">
+                            <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944861194-image-1.png" alt="Lumi - System Architecture">
+                        </div>
+                        <p class="text-center text-sm text-gray-400 mt-4 font-medium">Architecture — Edge sensing + cloud AI tutor</p>
+                    </div>
+                    <div>
+                        <div class="screenshot-frame">
+                            <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944867469-image-1.png" alt="Lumi - Hardware Prototype">
+                        </div>
+                        <p class="text-center text-sm text-gray-400 mt-4 font-medium">Hardware — The Lumi orb device</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Dashboard (FULL) -->
+            <div>
+                <p class="text-center text-xs text-indigo-500 font-bold section-label uppercase mb-3">Track Progress</p>
+                <div class="screenshot-frame">
+                    <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944874268-image-1.png" alt="Lumi - Companion Dashboard">
+                </div>
+                <p class="text-center text-sm text-gray-400 mt-4 font-medium">Software — Focus, streaks & mastery dashboard</p>
+            </div>
+
+            <!-- 8. Impact & Scale (FULL) -->
+            <div>
+                <p class="text-center text-xs text-indigo-500 font-bold section-label uppercase mb-3">At Scale</p>
+                <div class="screenshot-frame">
+                    <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944880979-image-1.png" alt="Lumi - Impact & Scale">
+                </div>
+                <p class="text-center text-sm text-gray-400 mt-4 font-medium">Impact — A study buddy in every classroom</p>
+            </div>
+
+        </div>
+
+        <!-- Feature strip -->
+        <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-6 rounded-2xl bg-gradient-to-br from-indigo-50 to-white border border-indigo-100">
+                <div class="w-11 h-11 bg-indigo-500 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-microphone-lines text-white"></i></div>
+                <h3 class="font-bold text-gray-900 mb-1">Voice Q&A Tutor</h3>
+                <p class="text-sm text-gray-500">Ask anything out loud. Lumi explains step-by-step at the student's level — never just the answer.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-gradient-to-br from-amber-50 to-white border border-amber-100">
+                <div class="w-11 h-11 bg-amber-400 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-bullseye text-white"></i></div>
+                <h3 class="font-bold text-gray-900 mb-1">Focus Guardian</h3>
+                <p class="text-sm text-gray-500">Ambient + presence sensing runs Pomodoro sessions and gently nudges when attention drifts.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-gradient-to-br from-emerald-50 to-white border border-emerald-100">
+                <div class="w-11 h-11 bg-emerald-500 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-brain text-white"></i></div>
+                <h3 class="font-bold text-gray-900 mb-1">Spaced Repetition</h3>
+                <p class="text-sm text-gray-500">Turns each session into review cards and schedules them so knowledge actually sticks.</p>
+            </div>
+        </div>
+
+        <!-- Tech spec strip -->
+        <div class="mt-10 rounded-2xl bg-gray-900 text-white p-8">
+            <p class="text-xs text-amber-300 font-bold section-label uppercase mb-5">Core Hardware</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+                <div><i class="fas fa-microchip text-amber-300 mb-2"></i><p class="font-semibold">Edge AI SoC</p><p class="text-gray-400 text-xs">On-device wake-word & vision</p></div>
+                <div><i class="fas fa-record-vinyl text-amber-300 mb-2"></i><p class="font-semibold">4-Mic Array</p><p class="text-gray-400 text-xs">Far-field voice + noise cancel</p></div>
+                <div><i class="fas fa-circle-half-stroke text-amber-300 mb-2"></i><p class="font-semibold">Round Display + LED Ring</p><p class="text-gray-400 text-xs">Expressive amber glow states</p></div>
+                <div><i class="fas fa-eye text-amber-300 mb-2"></i><p class="font-semibold">Presence & Light Sensors</p><p class="text-gray-400 text-xs">Privacy-first focus tracking</p></div>
+            </div>
+        </div>
+
+        <p class="text-center text-xs text-gray-300 mt-16">Lumi — AI Study Buddy · System Design Showcase</p>
+    </div>
+</body>
+</html>
