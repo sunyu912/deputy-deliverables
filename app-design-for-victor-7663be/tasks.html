@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasks</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{font-family:'Inter',sans-serif;-webkit-tap-highlight-color:transparent;box-sizing:border-box}
+  *::-webkit-scrollbar{display:none}*{scrollbar-width:none}
+  html,body{margin:0;padding:0;width:100%;height:100%}
+  .screen{width:100%;height:100%;background:#08080F;color:#fff;position:relative;overflow-y:auto;overflow-x:hidden}
+  .statusbar{height:59px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:20}
+  .island{position:absolute;left:50%;transform:translateX(-50%);top:11px;width:126px;height:36px;background:#000;border-radius:20px}
+  .glass{background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08)}
+  .tabbar{position:absolute;bottom:0;left:0;right:0;height:96px;background:rgba(12,12,20,0.82);backdrop-filter:blur(24px);border-top:1px solid rgba(255,255,255,0.06);display:flex;align-items:flex-start;justify-content:space-around;padding-top:14px;z-index:30}
+  .tabitem{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:10px;color:#5B5B72;font-weight:500}
+  .tabitem.active{color:#fff}
+  .fab{width:56px;height:56px;border-radius:20px;background:linear-gradient(135deg,#8B7CFF,#5B4BFF);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(123,108,255,0.5);margin-top:-14px}
+  .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+  .grad-violet{background:linear-gradient(135deg,#8B7CFF,#6D5BFF)}
+  .grad-cyan{background:linear-gradient(135deg,#22D3EE,#0EA5C4)}
+  .grad-pink{background:linear-gradient(135deg,#F472B6,#DB2777)}
+  .grad-amber{background:linear-gradient(135deg,#FBBF24,#F59E0B)}
+  .grad-green{background:linear-gradient(135deg,#34D399,#10B981)}
+  .content{padding:0 28px 120px}
+  .chip{padding:8px 16px;border-radius:14px;font-size:12px;font-weight:600;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="screen">
+  <div class="statusbar">
+    <span class="text-[15px] font-semibold tracking-tight">9:41</span>
+    <div class="island"></div>
+    <div class="flex items-center gap-1.5 text-[13px]"><i class="fa-solid fa-signal"></i><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-battery-full"></i></div>
+  </div>
+
+  <div class="content">
+    <div class="flex items-center justify-between mt-2 mb-5">
+      <h1 class="text-[26px] font-extrabold tracking-tight">Task Pipeline</h1>
+      <div class="w-11 h-11 glass rounded-2xl flex items-center justify-center"><i class="fa-solid fa-sliders text-[15px]"></i></div>
+    </div>
+
+    <!-- Search -->
+    <div class="glass rounded-2xl px-4 py-3.5 flex items-center gap-3 mb-5">
+      <i class="fa-solid fa-magnifying-glass text-[#5B5B72] text-[14px]"></i>
+      <span class="text-[14px] text-[#5B5B72]">Search tasks or deputies…</span>
+    </div>
+
+    <!-- Filter chips -->
+    <div class="flex gap-2.5 overflow-x-auto -mx-7 px-7 pb-1 mb-6">
+      <div class="chip grad-violet">All · 41</div>
+      <div class="chip glass">Running</div>
+      <div class="chip glass">Queued</div>
+      <div class="chip glass">Review</div>
+      <div class="chip glass">Done</div>
+    </div>
+
+    <!-- Running -->
+    <div class="flex items-center gap-2 mb-3">
+      <span class="dot bg-[#46E0D0] animate-pulse"></span>
+      <h2 class="text-[13px] font-bold text-[#8A8AA0] tracking-wide uppercase">Running · 14</h2>
+    </div>
+
+    <div class="glass rounded-3xl p-4 mb-3">
+      <div class="flex items-start gap-3.5">
+        <div class="w-11 h-11 grad-cyan rounded-2xl flex items-center justify-center shrink-0"><i class="fa-solid fa-file-pen text-[15px]"></i></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between">
+            <p class="text-[15px] font-bold truncate">App design for Victor</p>
+            <span class="text-[10px] text-[#8A8AA0] shrink-0 ml-2">2m</span>
+          </div>
+          <p class="text-[11px] text-[#8A8AA0] mb-3">Routed to <span class="text-[#8B7CFF] font-semibold">Atlas</span> · Design project</p>
+          <div class="h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="h-full grad-cyan" style="width:72%"></div></div>
+          <div class="flex items-center justify-between mt-2">
+            <span class="text-[10px] text-[#8A8AA0]">Generating screens…</span>
+            <span class="text-[10px] font-bold text-[#46E0D0]">72%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass rounded-3xl p-4 mb-3">
+      <div class="flex items-start gap-3.5">
+        <div class="w-11 h-11 grad-violet rounded-2xl flex items-center justify-center shrink-0"><i class="fa-solid fa-code text-[15px]"></i></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between">
+            <p class="text-[15px] font-bold truncate">Fix checkout bug #4821</p>
+            <span class="text-[10px] text-[#8A8AA0] shrink-0 ml-2">just now</span>
+          </div>
+          <p class="text-[11px] text-[#8A8AA0] mb-3">Routed to <span class="text-[#8B7CFF] font-semibold">Forge</span> · Engineering</p>
+          <div class="h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="h-full grad-violet" style="width:45%"></div></div>
+          <div class="flex items-center justify-between mt-2">
+            <span class="text-[10px] text-[#8A8AA0]">Running test suite…</span>
+            <span class="text-[10px] font-bold text-[#8B7CFF]">45%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review -->
+    <div class="flex items-center gap-2 mb-3 mt-6">
+      <span class="dot bg-[#FBBF24]"></span>
+      <h2 class="text-[13px] font-bold text-[#8A8AA0] tracking-wide uppercase">Awaiting Review · 3</h2>
+    </div>
+    <div class="glass rounded-3xl p-4 mb-3">
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 grad-pink rounded-2xl flex items-center justify-center shrink-0"><i class="fa-solid fa-chart-line text-[15px]"></i></div>
+        <div class="flex-1 min-w-0">
+          <p class="text-[15px] font-bold truncate">Q3 growth report</p>
+          <p class="text-[11px] text-[#8A8AA0]">Sage · 12 pages ready</p>
+        </div>
+        <span class="grad-amber text-black text-[10px] font-bold px-3 py-1.5 rounded-xl">Review</span>
+      </div>
+    </div>
+
+    <!-- Done -->
+    <div class="flex items-center gap-2 mb-3 mt-6">
+      <span class="dot bg-[#34D399]"></span>
+      <h2 class="text-[13px] font-bold text-[#8A8AA0] tracking-wide uppercase">Completed today · 8</h2>
+    </div>
+    <div class="glass rounded-3xl p-4 mb-3 opacity-80">
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 grad-green rounded-2xl flex items-center justify-center shrink-0"><i class="fa-solid fa-check text-[15px]"></i></div>
+        <div class="flex-1 min-w-0">
+          <p class="text-[15px] font-bold truncate">Draft investor email</p>
+          <p class="text-[11px] text-[#8A8AA0]">Atlas · approved & sent</p>
+        </div>
+        <span class="text-[11px] text-[#34D399] font-semibold">Done</span>
+      </div>
+    </div>
+    <div class="glass rounded-3xl p-4 opacity-80">
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 grad-green rounded-2xl flex items-center justify-center shrink-0"><i class="fa-solid fa-calendar-check text-[15px]"></i></div>
+        <div class="flex-1 min-w-0">
+          <p class="text-[15px] font-bold truncate">Schedule 3 course sessions</p>
+          <p class="text-[11px] text-[#8A8AA0]">Beacon · booked to calendar</p>
+        </div>
+        <span class="text-[11px] text-[#34D399] font-semibold">Done</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabbar">
+    <div class="tabitem"><i class="fa-solid fa-house text-[18px]"></i><span>Home</span></div>
+    <div class="tabitem active"><i class="fa-solid fa-diagram-project text-[18px]"></i><span>Tasks</span></div>
+    <div class="fab"><i class="fa-solid fa-plus text-[20px]"></i></div>
+    <div class="tabitem"><i class="fa-solid fa-box-open text-[18px]"></i><span>Delivery</span></div>
+    <div class="tabitem"><i class="fa-solid fa-robot text-[18px]"></i><span>Deputies</span></div>
+  </div>
+</div>
+</body>
+</html>

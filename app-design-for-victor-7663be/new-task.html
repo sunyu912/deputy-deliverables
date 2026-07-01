@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Task</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{font-family:'Inter',sans-serif;-webkit-tap-highlight-color:transparent;box-sizing:border-box}
+  *::-webkit-scrollbar{display:none}*{scrollbar-width:none}
+  html,body{margin:0;padding:0;width:100%;height:100%}
+  .screen{width:100%;height:100%;background:#08080F;color:#fff;position:relative;overflow-y:auto;overflow-x:hidden}
+  .statusbar{height:59px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:20}
+  .island{position:absolute;left:50%;transform:translateX(-50%);top:11px;width:126px;height:36px;background:#000;border-radius:20px}
+  .glass{background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08)}
+  .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+  .grad-violet{background:linear-gradient(135deg,#8B7CFF,#6D5BFF)}
+  .grad-cyan{background:linear-gradient(135deg,#22D3EE,#0EA5C4)}
+  .grad-pink{background:linear-gradient(135deg,#F472B6,#DB2777)}
+  .grad-amber{background:linear-gradient(135deg,#FBBF24,#F59E0B)}
+  .content{padding:0 28px 130px}
+  .cta{position:absolute;bottom:0;left:0;right:0;padding:20px 28px 34px;background:linear-gradient(180deg,rgba(8,8,15,0),rgba(8,8,15,0.95) 40%);z-index:30}
+</style>
+</head>
+<body>
+<div class="screen">
+  <div class="statusbar">
+    <span class="text-[15px] font-semibold tracking-tight">9:41</span>
+    <div class="island"></div>
+    <div class="flex items-center gap-1.5 text-[13px]"><i class="fa-solid fa-signal"></i><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-battery-full"></i></div>
+  </div>
+
+  <div class="content">
+    <div class="flex items-center justify-between mt-2 mb-6">
+      <div class="w-11 h-11 glass rounded-2xl flex items-center justify-center"><i class="fa-solid fa-xmark text-[16px]"></i></div>
+      <h1 class="text-[17px] font-bold">New Task</h1>
+      <div class="w-11 h-11"></div>
+    </div>
+
+    <!-- Big input -->
+    <p class="text-[13px] text-[#8A8AA0] font-medium mb-2">What do you need done?</p>
+    <div class="glass rounded-3xl p-5 mb-3 min-h-[120px]">
+      <p class="text-[17px] font-semibold leading-relaxed">Design a mobile app that manages my Deputy Handler system.</p>
+      <p class="text-[14px] text-[#5B5B72] mt-2">Add details, links, or files…</p>
+    </div>
+    <div class="flex gap-2.5 mb-6">
+      <div class="glass rounded-2xl px-4 py-2.5 flex items-center gap-2 text-[12px] font-semibold"><i class="fa-solid fa-microphone text-[#8B7CFF]"></i> Voice</div>
+      <div class="glass rounded-2xl px-4 py-2.5 flex items-center gap-2 text-[12px] font-semibold"><i class="fa-solid fa-paperclip text-[#22D3EE]"></i> Attach</div>
+      <div class="glass rounded-2xl px-4 py-2.5 flex items-center gap-2 text-[12px] font-semibold"><i class="fa-solid fa-link text-[#F472B6]"></i> Link</div>
+    </div>
+
+    <!-- Smart routing preview -->
+    <div class="rounded-3xl p-5 mb-6" style="background:linear-gradient(135deg,rgba(139,124,255,0.16),rgba(34,211,238,0.08));border:1px solid rgba(139,124,255,0.25)">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-7 h-7 grad-violet rounded-lg flex items-center justify-center"><i class="fa-solid fa-wand-magic-sparkles text-[12px]"></i></div>
+        <p class="text-[13px] font-bold">Smart routing preview</p>
+        <span class="dot bg-[#46E0D0] animate-pulse ml-auto"></span>
+      </div>
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl overflow-hidden shrink-0"><img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944474191-image-1.png" class="w-full h-full object-cover"></div>
+        <div class="flex-1">
+          <p class="text-[14px] font-bold">Atlas · Design project</p>
+          <p class="text-[11px] text-[#8A8AA0]">Best match · 96% confidence</p>
+        </div>
+        <span class="text-[11px] font-bold text-[#8B7CFF]">Change</span>
+      </div>
+      <div class="flex items-center gap-2 text-[11px] text-[#B8B8CC]">
+        <i class="fa-solid fa-clock text-[#8A8AA0]"></i> Est. 6 min &nbsp;·&nbsp; <i class="fa-solid fa-layer-group text-[#8A8AA0]"></i> 7 deliverables
+      </div>
+    </div>
+
+    <!-- Options -->
+    <p class="text-[13px] text-[#8A8AA0] font-medium mb-3">Priority</p>
+    <div class="flex gap-2.5 mb-6">
+      <div class="flex-1 glass rounded-2xl py-3 text-center text-[13px] font-semibold text-[#8A8AA0]">Low</div>
+      <div class="flex-1 grad-amber rounded-2xl py-3 text-center text-[13px] font-bold text-black">Normal</div>
+      <div class="flex-1 glass rounded-2xl py-3 text-center text-[13px] font-semibold text-[#8A8AA0]">Urgent</div>
+    </div>
+
+    <div class="glass rounded-2xl px-4 py-4 flex items-center justify-between mb-3">
+      <div class="flex items-center gap-3"><i class="fa-solid fa-bell text-[#F472B6]"></i><span class="text-[14px] font-medium">Notify on delivery</span></div>
+      <div class="w-11 h-6 rounded-full grad-violet relative"><span class="absolute right-0.5 top-0.5 w-5 h-5 rounded-full bg-white"></span></div>
+    </div>
+    <div class="glass rounded-2xl px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3"><i class="fa-solid fa-user-check text-[#22D3EE]"></i><span class="text-[14px] font-medium">Require my approval</span></div>
+      <div class="w-11 h-6 rounded-full grad-violet relative"><span class="absolute right-0.5 top-0.5 w-5 h-5 rounded-full bg-white"></span></div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="grad-violet rounded-2xl py-4 text-center text-[15px] font-bold flex items-center justify-center gap-2" style="box-shadow:0 8px 28px rgba(123,108,255,0.45)">
+      <i class="fa-solid fa-paper-plane"></i> Dispatch to Deputy
+    </div>
+  </div>
+</div>
+</body>
+</html>

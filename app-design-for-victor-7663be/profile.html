@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{font-family:'Inter',sans-serif;-webkit-tap-highlight-color:transparent;box-sizing:border-box}
+  *::-webkit-scrollbar{display:none}*{scrollbar-width:none}
+  html,body{margin:0;padding:0;width:100%;height:100%}
+  .screen{width:100%;height:100%;background:#08080F;color:#fff;position:relative;overflow-y:auto;overflow-x:hidden}
+  .statusbar{height:59px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:20}
+  .island{position:absolute;left:50%;transform:translateX(-50%);top:11px;width:126px;height:36px;background:#000;border-radius:20px}
+  .glass{background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08)}
+  .tabbar{position:absolute;bottom:0;left:0;right:0;height:96px;background:rgba(12,12,20,0.82);backdrop-filter:blur(24px);border-top:1px solid rgba(255,255,255,0.06);display:flex;align-items:flex-start;justify-content:space-around;padding-top:14px;z-index:30}
+  .tabitem{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:10px;color:#5B5B72;font-weight:500}
+  .tabitem.active{color:#fff}
+  .fab{width:56px;height:56px;border-radius:20px;background:linear-gradient(135deg,#8B7CFF,#5B4BFF);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(123,108,255,0.5);margin-top:-14px}
+  .grad-violet{background:linear-gradient(135deg,#8B7CFF,#6D5BFF)}
+  .grad-cyan{background:linear-gradient(135deg,#22D3EE,#0EA5C4)}
+  .grad-pink{background:linear-gradient(135deg,#F472B6,#DB2777)}
+  .grad-amber{background:linear-gradient(135deg,#FBBF24,#F59E0B)}
+  .content{padding:0 28px 120px}
+  .row{display:flex;align-items:center;gap:14px;padding:15px 0}
+  .icn{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="screen">
+  <div class="statusbar">
+    <span class="text-[15px] font-semibold tracking-tight">9:41</span>
+    <div class="island"></div>
+    <div class="flex items-center gap-1.5 text-[13px]"><i class="fa-solid fa-signal"></i><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-battery-full"></i></div>
+  </div>
+
+  <div class="content">
+    <div class="flex items-center justify-between mt-2 mb-6">
+      <h1 class="text-[26px] font-extrabold tracking-tight">Profile</h1>
+      <div class="w-11 h-11 glass rounded-2xl flex items-center justify-center"><i class="fa-solid fa-gear text-[15px]"></i></div>
+    </div>
+
+    <!-- Profile card -->
+    <div class="rounded-[28px] p-5 mb-6 relative overflow-hidden" style="background:linear-gradient(135deg,#8B7CFF,#5B4BFF)">
+      <div class="absolute -right-8 -top-8 w-40 h-40 rounded-full" style="background:rgba(255,255,255,0.12)"></div>
+      <div class="flex items-center gap-4 relative">
+        <img src="https://i.pravatar.cc/120?img=12" class="w-16 h-16 rounded-2xl object-cover border-2 border-white/30">
+        <div class="flex-1">
+          <p class="text-[19px] font-extrabold">Victor Sun</p>
+          <p class="text-[12px] text-white/80">victor@deputy.app</p>
+          <span class="inline-block mt-1.5 bg-white/20 text-[10px] font-bold px-2.5 py-1 rounded-full"><i class="fa-solid fa-crown mr-1"></i>PRO PLAN</span>
+        </div>
+      </div>
+      <div class="flex items-center justify-between mt-5 relative">
+        <div><p class="text-[22px] font-extrabold leading-none">312</p><p class="text-[10px] text-white/70 mt-1">Tasks done</p></div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div><p class="text-[22px] font-extrabold leading-none">218h</p><p class="text-[10px] text-white/70 mt-1">Saved</p></div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div><p class="text-[22px] font-extrabold leading-none">4.9</p><p class="text-[10px] text-white/70 mt-1">Avg quality</p></div>
+      </div>
+    </div>
+
+    <!-- Usage this month -->
+    <div class="glass rounded-3xl p-5 mb-6">
+      <div class="flex items-center justify-between mb-3">
+        <p class="text-[13px] font-bold">Deputy credits</p>
+        <p class="text-[11px] text-[#8A8AA0]">640 / 1,000</p>
+      </div>
+      <div class="h-2.5 rounded-full bg-white/10 overflow-hidden"><div class="h-full grad-violet" style="width:64%"></div></div>
+      <p class="text-[11px] text-[#8A8AA0] mt-2">Resets in 12 days · <span class="text-[#8B7CFF] font-semibold">Upgrade</span></p>
+    </div>
+
+    <!-- Settings -->
+    <h2 class="text-[13px] font-bold text-[#8A8AA0] uppercase tracking-wide mb-1">Preferences</h2>
+    <div class="glass rounded-3xl px-4 mb-5">
+      <div class="row border-b border-white/6">
+        <div class="icn grad-violet"><i class="fa-solid fa-route"></i></div>
+        <div class="flex-1"><p class="text-[14px] font-semibold">Auto-routing rules</p></div>
+        <i class="fa-solid fa-chevron-right text-[#5B5B72] text-[12px]"></i>
+      </div>
+      <div class="row border-b border-white/6">
+        <div class="icn grad-cyan"><i class="fa-solid fa-bell"></i></div>
+        <div class="flex-1"><p class="text-[14px] font-semibold">Notifications</p></div>
+        <i class="fa-solid fa-chevron-right text-[#5B5B72] text-[12px]"></i>
+      </div>
+      <div class="row">
+        <div class="icn grad-pink"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="flex-1"><p class="text-[14px] font-semibold">Approvals & guardrails</p></div>
+        <i class="fa-solid fa-chevron-right text-[#5B5B72] text-[12px]"></i>
+      </div>
+    </div>
+
+    <h2 class="text-[13px] font-bold text-[#8A8AA0] uppercase tracking-wide mb-1">Connections</h2>
+    <div class="glass rounded-3xl px-4">
+      <div class="row border-b border-white/6">
+        <div class="icn grad-amber"><i class="fa-solid fa-plug"></i></div>
+        <div class="flex-1"><p class="text-[14px] font-semibold">Integrations</p><p class="text-[11px] text-[#8A8AA0]">Basecamp · Slack · Calendar</p></div>
+        <span class="text-[10px] text-[#34D399] font-bold">3 active</span>
+      </div>
+      <div class="row">
+        <div class="icn" style="background:rgba(255,255,255,0.08)"><i class="fa-solid fa-right-from-bracket text-[#F472B6]"></i></div>
+        <div class="flex-1"><p class="text-[14px] font-semibold text-[#F472B6]">Sign out</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabbar">
+    <div class="tabitem"><i class="fa-solid fa-house text-[18px]"></i><span>Home</span></div>
+    <div class="tabitem"><i class="fa-solid fa-diagram-project text-[18px]"></i><span>Tasks</span></div>
+    <div class="fab"><i class="fa-solid fa-plus text-[20px]"></i></div>
+    <div class="tabitem"><i class="fa-solid fa-box-open text-[18px]"></i><span>Delivery</span></div>
+    <div class="tabitem"><i class="fa-solid fa-robot text-[18px]"></i><span>Deputies</span></div>
+  </div>
+</div>
+</body>
+</html>

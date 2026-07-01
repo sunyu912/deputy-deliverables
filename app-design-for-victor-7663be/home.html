@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Command Center</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{font-family:'Inter',sans-serif;-webkit-tap-highlight-color:transparent;box-sizing:border-box}
+  *::-webkit-scrollbar{display:none}
+  *{scrollbar-width:none}
+  html,body{margin:0;padding:0;width:100%;height:100%}
+  .screen{width:100%;height:100%;background:#08080F;color:#fff;position:relative;overflow-y:auto;overflow-x:hidden}
+  .statusbar{height:59px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:20}
+  .island{position:absolute;left:50%;transform:translateX(-50%);top:11px;width:126px;height:36px;background:#000;border-radius:20px}
+  .glass{background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08)}
+  .tabbar{position:absolute;bottom:0;left:0;right:0;height:96px;background:rgba(12,12,20,0.82);backdrop-filter:blur(24px);border-top:1px solid rgba(255,255,255,0.06);display:flex;align-items:flex-start;justify-content:space-around;padding-top:14px;z-index:30}
+  .tabitem{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:10px;color:#5B5B72;font-weight:500}
+  .tabitem.active{color:#fff}
+  .fab{width:56px;height:56px;border-radius:20px;background:linear-gradient(135deg,#8B7CFF,#5B4BFF);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(123,108,255,0.5);margin-top:-14px}
+  .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+  .grad-violet{background:linear-gradient(135deg,#8B7CFF,#6D5BFF)}
+  .grad-cyan{background:linear-gradient(135deg,#22D3EE,#0EA5C4)}
+  .grad-pink{background:linear-gradient(135deg,#F472B6,#DB2777)}
+  .grad-amber{background:linear-gradient(135deg,#FBBF24,#F59E0B)}
+  .content{padding:0 28px 120px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <!-- Status Bar -->
+  <div class="statusbar">
+    <span class="text-[15px] font-semibold tracking-tight">9:41</span>
+    <div class="island"></div>
+    <div class="flex items-center gap-1.5 text-[13px]">
+      <i class="fa-solid fa-signal"></i><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-battery-full"></i>
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- Header -->
+    <div class="flex items-center justify-between mt-2 mb-6">
+      <div>
+        <p class="text-[13px] text-[#8A8AA0] font-medium">Good morning, Victor</p>
+        <h1 class="text-[26px] font-extrabold tracking-tight leading-tight">Command Center</h1>
+      </div>
+      <div class="relative">
+        <img src="https://i.pravatar.cc/120?img=12" class="w-11 h-11 rounded-2xl object-cover border border-white/10">
+        <span class="absolute -top-0.5 -right-0.5 dot bg-[#46E0D0] ring-2 ring-[#08080F]"></span>
+      </div>
+    </div>
+
+    <!-- Hero live card -->
+    <div class="relative rounded-[28px] overflow-hidden mb-5 h-[188px]">
+      <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944457698-image-1.png" class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(8,8,15,0.15),rgba(8,8,15,0.88))"></div>
+      <div class="absolute top-4 left-4 glass rounded-full px-3 py-1.5 flex items-center gap-2">
+        <span class="dot bg-[#46E0D0] animate-pulse"></span>
+        <span class="text-[11px] font-semibold">6 deputies live</span>
+      </div>
+      <div class="absolute bottom-4 left-5 right-5">
+        <p class="text-[12px] text-white/70 font-medium mb-0.5">Tasks executing now</p>
+        <div class="flex items-end justify-between">
+          <p class="text-[34px] font-extrabold leading-none">14 <span class="text-[15px] font-semibold text-white/60">running</span></p>
+          <div class="glass rounded-2xl px-3.5 py-2 flex items-center gap-2">
+            <i class="fa-solid fa-bolt text-[#FBBF24] text-[12px]"></i>
+            <span class="text-[12px] font-semibold">98% on time</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stat pills -->
+    <div class="grid grid-cols-3 gap-3 mb-6">
+      <div class="glass rounded-3xl p-4">
+        <div class="w-9 h-9 grad-cyan rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-inbox text-[13px]"></i></div>
+        <p class="text-[28px] font-extrabold leading-none">27</p>
+        <p class="text-[11px] text-[#8A8AA0] font-medium mt-1">Queued</p>
+      </div>
+      <div class="glass rounded-3xl p-4">
+        <div class="w-9 h-9 grad-violet rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-circle-check text-[13px]"></i></div>
+        <p class="text-[28px] font-extrabold leading-none">312</p>
+        <p class="text-[11px] text-[#8A8AA0] font-medium mt-1">Done</p>
+      </div>
+      <div class="glass rounded-3xl p-4">
+        <div class="w-9 h-9 grad-pink rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-star text-[13px]"></i></div>
+        <p class="text-[28px] font-extrabold leading-none">4.9</p>
+        <p class="text-[11px] text-[#8A8AA0] font-medium mt-1">Quality</p>
+      </div>
+    </div>
+
+    <!-- Active deputies carousel -->
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-[17px] font-bold">Active Deputies</h2>
+      <span class="text-[12px] text-[#8B7CFF] font-semibold">See all</span>
+    </div>
+    <div class="flex gap-3 overflow-x-auto -mx-7 px-7 pb-2 mb-6">
+      <div class="glass rounded-3xl p-4 min-w-[150px]">
+        <div class="flex items-center justify-between mb-3">
+          <div class="w-10 h-10 rounded-2xl overflow-hidden"><img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782944474191-image-1.png" class="w-full h-full object-cover"></div>
+          <span class="dot bg-[#46E0D0] animate-pulse"></span>
+        </div>
+        <p class="text-[14px] font-bold">Atlas</p>
+        <p class="text-[11px] text-[#8A8AA0] mb-3">Research & Docs</p>
+        <div class="h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="h-full grad-cyan" style="width:72%"></div></div>
+        <p class="text-[10px] text-[#8A8AA0] mt-1.5">Drafting proposal · 72%</p>
+      </div>
+      <div class="glass rounded-3xl p-4 min-w-[150px]">
+        <div class="flex items-center justify-between mb-3">
+          <div class="w-10 h-10 grad-violet rounded-2xl flex items-center justify-center"><i class="fa-solid fa-code"></i></div>
+          <span class="dot bg-[#46E0D0] animate-pulse"></span>
+        </div>
+        <p class="text-[14px] font-bold">Forge</p>
+        <p class="text-[11px] text-[#8A8AA0] mb-3">Build & Deploy</p>
+        <div class="h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="h-full grad-violet" style="width:45%"></div></div>
+        <p class="text-[10px] text-[#8A8AA0] mt-1.5">Running tests · 45%</p>
+      </div>
+      <div class="glass rounded-3xl p-4 min-w-[150px]">
+        <div class="flex items-center justify-between mb-3">
+          <div class="w-10 h-10 grad-pink rounded-2xl flex items-center justify-center"><i class="fa-solid fa-palette"></i></div>
+          <span class="dot bg-[#FBBF24]"></span>
+        </div>
+        <p class="text-[14px] font-bold">Muse</p>
+        <p class="text-[11px] text-[#8A8AA0] mb-3">Design</p>
+        <div class="h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="h-full grad-pink" style="width:20%"></div></div>
+        <p class="text-[10px] text-[#8A8AA0] mt-1.5">Waiting review · 20%</p>
+      </div>
+    </div>
+
+    <!-- Needs your review -->
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-[17px] font-bold">Needs Your Review</h2>
+      <span class="grad-amber text-[10px] font-bold px-2.5 py-1 rounded-full text-black">3 NEW</span>
+    </div>
+    <div class="glass rounded-3xl p-4 mb-3 flex items-center gap-4">
+      <div class="w-12 h-12 grad-cyan rounded-2xl flex items-center justify-center shrink-0"><i class="fa-solid fa-file-lines text-[16px]"></i></div>
+      <div class="flex-1 min-w-0">
+        <p class="text-[14px] font-bold truncate">App design for Victor</p>
+        <p class="text-[11px] text-[#8A8AA0] truncate">Atlas delivered 7 screens · ready</p>
+      </div>
+      <div class="w-8 h-8 rounded-full grad-violet flex items-center justify-center"><i class="fa-solid fa-arrow-right text-[12px]"></i></div>
+    </div>
+    <div class="glass rounded-3xl p-4 flex items-center gap-4">
+      <div class="w-12 h-12 grad-pink rounded-2xl flex items-center justify-center shrink-0"><i class="fa-solid fa-chart-line text-[16px]"></i></div>
+      <div class="flex-1 min-w-0">
+        <p class="text-[14px] font-bold truncate">Q3 growth report</p>
+        <p class="text-[11px] text-[#8A8AA0] truncate">Sage delivered · 12 pages</p>
+      </div>
+      <div class="w-8 h-8 rounded-full grad-violet flex items-center justify-center"><i class="fa-solid fa-arrow-right text-[12px]"></i></div>
+    </div>
+  </div>
+
+  <!-- Tab Bar -->
+  <div class="tabbar">
+    <div class="tabitem active"><i class="fa-solid fa-house text-[18px]"></i><span>Home</span></div>
+    <div class="tabitem"><i class="fa-solid fa-diagram-project text-[18px]"></i><span>Tasks</span></div>
+    <div class="fab"><i class="fa-solid fa-plus text-[20px]"></i></div>
+    <div class="tabitem"><i class="fa-solid fa-box-open text-[18px]"></i><span>Delivery</span></div>
+    <div class="tabitem"><i class="fa-solid fa-robot text-[18px]"></i><span>Deputies</span></div>
+  </div>
+</div>
+</body>
+</html>

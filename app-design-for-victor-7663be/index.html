@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deputy — Command Center for AI Task Deputies</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *{font-family:'Inter',sans-serif;box-sizing:border-box}
+  *::-webkit-scrollbar{display:none}*{scrollbar-width:none}
+  body{margin:0;background:#FFFFFF;color:#0B0B14}
+  .phone{width:460px;height:980px;background:#000;border-radius:62px;padding:12px;box-shadow:0 40px 90px rgba(20,20,50,0.18),0 8px 24px rgba(0,0,0,0.08);flex-shrink:0}
+  .phone .screen-wrap{width:100%;height:100%;border-radius:52px;overflow:hidden;background:#08080F}
+  iframe{width:100%;height:100%;border:none;display:block}
+  .grid3{display:grid;grid-template-columns:repeat(3,460px);gap:64px;justify-content:center}
+  .grad-text{background:linear-gradient(120deg,#8B7CFF,#22D3EE);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+</style>
+</head>
+<body>
+  <!-- Hero -->
+  <div class="max-w-[1500px] mx-auto px-10 pt-24 pb-10 text-center">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-7" style="background:linear-gradient(120deg,rgba(139,124,255,0.12),rgba(34,211,238,0.12));border:1px solid rgba(139,124,255,0.25)">
+      <span class="w-2 h-2 rounded-full" style="background:#8B7CFF"></span>
+      <span class="text-[13px] font-semibold" style="color:#5B4BFF">AI Task Delegation · Mobile</span>
+    </div>
+    <h1 class="text-[68px] font-black tracking-tight leading-[1.02] mb-6">Meet <span class="grad-text">Deputy</span>.<br>Your AI chief of staff.</h1>
+    <p class="text-[19px] text-gray-500 max-w-[640px] mx-auto leading-relaxed">Drop in any task. Deputy auto-routes it to the right AI handler, executes end-to-end, and hands you a finished deliverable to approve — all from your phone.</p>
+    <div class="flex items-center justify-center gap-10 mt-12">
+      <div><p class="text-[40px] font-black grad-text leading-none">7</p><p class="text-[13px] text-gray-400 font-medium mt-1">Screens</p></div>
+      <div class="w-px h-10 bg-gray-200"></div>
+      <div><p class="text-[40px] font-black grad-text leading-none">6</p><p class="text-[13px] text-gray-400 font-medium mt-1">AI Deputies</p></div>
+      <div class="w-px h-10 bg-gray-200"></div>
+      <div><p class="text-[40px] font-black grad-text leading-none">218h</p><p class="text-[13px] text-gray-400 font-medium mt-1">Saved / user</p></div>
+    </div>
+  </div>
+
+  <!-- Screens -->
+  <div class="py-20">
+    <div class="grid3">
+      <div class="text-center">
+        <div class="phone"><div class="screen-wrap"><iframe src="home.html" scrolling="no"></iframe></div></div>
+        <p class="text-[17px] font-bold mt-7">Command Center</p>
+        <p class="text-[14px] text-gray-400">Live deputy activity at a glance</p>
+      </div>
+      <div class="text-center">
+        <div class="phone"><div class="screen-wrap"><iframe src="tasks.html" scrolling="no"></iframe></div></div>
+        <p class="text-[17px] font-bold mt-7">Task Pipeline</p>
+        <p class="text-[14px] text-gray-400">Every task, routed and tracked</p>
+      </div>
+      <div class="text-center">
+        <div class="phone"><div class="screen-wrap"><iframe src="task-detail.html" scrolling="no"></iframe></div></div>
+        <p class="text-[17px] font-bold mt-7">Live Execution</p>
+        <p class="text-[14px] text-gray-400">Watch a deputy work in real time</p>
+      </div>
+      <div class="text-center">
+        <div class="phone"><div class="screen-wrap"><iframe src="new-task.html" scrolling="no"></iframe></div></div>
+        <p class="text-[17px] font-bold mt-7">Dispatch a Task</p>
+        <p class="text-[14px] text-gray-400">Smart routing before you send</p>
+      </div>
+      <div class="text-center">
+        <div class="phone"><div class="screen-wrap"><iframe src="deliverables.html" scrolling="no"></iframe></div></div>
+        <p class="text-[17px] font-bold mt-7">Deliverables</p>
+        <p class="text-[14px] text-gray-400">Review, revise, approve</p>
+      </div>
+      <div class="text-center">
+        <div class="phone"><div class="screen-wrap"><iframe src="deputies.html" scrolling="no"></iframe></div></div>
+        <p class="text-[17px] font-bold mt-7">Deputy Team</p>
+        <p class="text-[14px] text-gray-400">Manage your AI handlers</p>
+      </div>
+      <div class="text-center">
+        <div class="phone"><div class="screen-wrap"><iframe src="profile.html" scrolling="no"></iframe></div></div>
+        <p class="text-[17px] font-bold mt-7">Profile & Rules</p>
+        <p class="text-[14px] text-gray-400">Credits, guardrails, integrations</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center pb-24 text-gray-300 text-[13px] font-medium">Deputy · Prototype · iPhone 17 Pro Max</div>
+</body>
+</html>
