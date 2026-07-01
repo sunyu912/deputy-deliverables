@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRSTLINE — Disaster Response Simulator | Game Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        * { font-family: 'Inter', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+        *::-webkit-scrollbar { display: none; }
+        * { scrollbar-width: none; }
+        body { background: #0b0f16; }
+
+        .screenshot-frame {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #11161f;
+        }
+        .screenshot-frame:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 35px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,140,0,0.25);
+        }
+        .screenshot-frame img { width: 100%; height: auto; display: block; }
+        .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        @media (max-width: 768px){ .grid-2col{ grid-template-columns: 1fr; } }
+        .glow-text { text-shadow: 0 0 30px rgba(255,120,20,0.35); }
+        .card { background: linear-gradient(160deg,#141a24,#0e131b); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="max-w-5xl mx-auto px-8 pt-16 pb-10 text-center">
+        <div class="flex items-center justify-center gap-3 mb-6">
+            <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg shadow-orange-900/40">
+                <i class="fas fa-fire-extinguisher text-white text-3xl"></i>
+            </div>
+        </div>
+        <h1 class="text-6xl font-black text-white mb-4 glow-text tracking-tight">FIRSTLINE</h1>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">A first-person disaster-response training simulator that turns real emergency protocols into muscle memory — evacuate, rescue, and stay alive when every second counts.</p>
+        <div class="flex flex-wrap items-center justify-center gap-3 mt-6">
+            <span class="text-xs bg-orange-500/15 text-orange-300 px-3 py-1 rounded-full font-medium">First-Person Simulation</span>
+            <span class="text-xs bg-blue-500/15 text-blue-300 px-3 py-1 rounded-full font-medium">Serious Game</span>
+            <span class="text-xs bg-yellow-500/15 text-yellow-300 px-3 py-1 rounded-full font-medium">Emergency Training</span>
+            <span class="text-xs bg-red-500/15 text-red-300 px-3 py-1 rounded-full font-medium">Single &amp; Co-op</span>
+        </div>
+    </div>
+
+    <!-- Screenshots -->
+    <div class="max-w-5xl mx-auto px-8 pb-8">
+        <div class="flex flex-col gap-8">
+
+            <!-- 1. Title (full) -->
+            <div>
+                <div class="screenshot-frame">
+                    <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782941882025-image-1.png" alt="FIRSTLINE - Title Screen">
+                </div>
+                <p class="text-center text-sm text-gray-500 mt-4 font-medium">Title Screen — Into the Blaze</p>
+            </div>
+
+            <!-- 2 + 3 -->
+            <div class="grid-2col">
+                <div>
+                    <div class="screenshot-frame">
+                        <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782941882317-image-1.png" alt="FIRSTLINE - Core Gameplay">
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-4 font-medium">Core Gameplay — Fire Suppression &amp; Evac</p>
+                </div>
+                <div>
+                    <div class="screenshot-frame">
+                        <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782941881146-image-1.png" alt="FIRSTLINE - Scenario Map">
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-4 font-medium">Scenario Map — City Readiness Grid</p>
+                </div>
+            </div>
+
+            <!-- 4. Dramatic (full) -->
+            <div>
+                <div class="screenshot-frame">
+                    <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782941882128-image-1.png" alt="FIRSTLINE - Earthquake Event">
+                </div>
+                <p class="text-center text-sm text-gray-500 mt-4 font-medium">Dramatic Event — Drop, Cover &amp; Hold</p>
+            </div>
+
+            <!-- 5 + 6 -->
+            <div class="grid-2col">
+                <div>
+                    <div class="screenshot-frame">
+                        <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782941882186-image-1.png" alt="FIRSTLINE - Rescue Moment">
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-4 font-medium">Story Moment — Calm the Victim</p>
+                </div>
+                <div>
+                    <div class="screenshot-frame">
+                        <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782941912916-image-1.png" alt="FIRSTLINE - Debrief Dashboard">
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-4 font-medium">After-Action — Performance Debrief</p>
+                </div>
+            </div>
+
+            <!-- 7. Mechanic A (full) -->
+            <div>
+                <div class="screenshot-frame">
+                    <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782941913061-image-1.png" alt="FIRSTLINE - Hazard Scanning">
+                </div>
+                <p class="text-center text-sm text-gray-500 mt-4 font-medium">Mechanic — Hazard Identification Scan</p>
+            </div>
+
+            <!-- 8 + 9 -->
+            <div class="grid-2col">
+                <div>
+                    <div class="screenshot-frame">
+                        <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782941913589-image-1.png" alt="FIRSTLINE - CPR First Aid">
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-4 font-medium">Mechanic — CPR &amp; First Aid Rhythm</p>
+                </div>
+                <div>
+                    <div class="screenshot-frame">
+                        <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782941913304-image-1.png" alt="FIRSTLINE - Flood Evacuation">
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-4 font-medium">Moment — Flooded Subway Evacuation</p>
+                </div>
+            </div>
+
+            <!-- 10. Moment B (full) -->
+            <div>
+                <div class="screenshot-frame">
+                    <img src="https://cm-idea-images.s3.us-west-1.amazonaws.com/1782941915043-image-1.png" alt="FIRSTLINE - Mission Complete">
+                </div>
+                <p class="text-center text-sm text-gray-500 mt-4 font-medium">Mission Complete — Everyone Out Alive</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Design Overview -->
+    <div class="max-w-5xl mx-auto px-8 py-16">
+        <h2 class="text-3xl font-black text-white mb-2 text-center">Design Overview</h2>
+        <p class="text-gray-500 text-center mb-12 max-w-2xl mx-auto">A serious game built to make life-saving procedures instinctive under stress.</p>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-10">
+            <div class="card p-6">
+                <div class="w-11 h-11 rounded-xl bg-orange-500/15 flex items-center justify-center mb-4"><i class="fas fa-gamepad text-orange-300 text-xl"></i></div>
+                <h3 class="text-white font-bold mb-2">Core Loop</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Assess the scene → identify hazards → follow protocol → evacuate &amp; treat survivors → debrief. Each run scores speed, accuracy, and lives saved.</p>
+            </div>
+            <div class="card p-6">
+                <div class="w-11 h-11 rounded-xl bg-blue-500/15 flex items-center justify-center mb-4"><i class="fas fa-triangle-exclamation text-blue-300 text-xl"></i></div>
+                <h3 class="text-white font-bold mb-2">Disaster Scenarios</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Building fires, earthquakes, flash floods, chemical (HAZMAT) spills, and structural collapse — each with authentic physics, spreading danger, and time pressure.</p>
+            </div>
+            <div class="card p-6">
+                <div class="w-11 h-11 rounded-xl bg-yellow-500/15 flex items-center justify-center mb-4"><i class="fas fa-heart-pulse text-yellow-300 text-xl"></i></div>
+                <h3 class="text-white font-bold mb-2">Learn by Doing</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Real protocols baked into mechanics: Drop-Cover-Hold, RACE &amp; PASS for fire, CPR rhythm, triage tagging, and safe evacuation routing.</p>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="card p-6">
+                <h3 class="text-white font-bold mb-4 flex items-center gap-2"><i class="fas fa-crosshairs text-orange-300"></i> Signature Mechanics</h3>
+                <ul class="text-gray-400 text-sm space-y-2">
+                    <li>• <span class="text-gray-200">Hazard Scanner</span> — spot and neutralize dangers before they escalate</li>
+                    <li>• <span class="text-gray-200">Stress &amp; Oxygen meters</span> — panic and smoke degrade your control</li>
+                    <li>• <span class="text-gray-200">Guide-the-Civilians</span> — herd panicked NPCs to safe exits</li>
+                    <li>• <span class="text-gray-200">First-Aid mini-games</span> — CPR timing, bleeding control, triage</li>
+                    <li>• <span class="text-gray-200">Branching decisions</span> — wrong protocol = real consequences</li>
+                </ul>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-white font-bold mb-4 flex items-center gap-2"><i class="fas fa-graduation-cap text-blue-300"></i> Training Outcomes</h3>
+                <ul class="text-gray-400 text-sm space-y-2">
+                    <li>• Builds instinctive response through repetition &amp; scoring</li>
+                    <li>• Skill badges: Fire, Flood, Earthquake, HAZMAT, First Aid</li>
+                    <li>• After-action analytics track reaction time &amp; protocol compliance</li>
+                    <li>• Co-op mode for team coordination &amp; role assignment</li>
+                    <li>• For schools, offices, first responders &amp; safety drills</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 mt-12 text-sm text-gray-500">
+            <span><i class="fas fa-desktop mr-2 text-gray-600"></i>PC &amp; VR</span>
+            <span class="text-gray-700">|</span>
+            <span><i class="fas fa-cube mr-2 text-gray-600"></i>Unreal Engine 5</span>
+            <span class="text-gray-700">|</span>
+            <span><i class="fas fa-users mr-2 text-gray-600"></i>Single-player &amp; 4-player Co-op</span>
+        </div>
+    </div>
+
+    <div class="text-center pb-16 text-gray-600 text-xs">FIRSTLINE — Disaster Response Simulator · Game Design Concept</div>
+</body>
+</html>
